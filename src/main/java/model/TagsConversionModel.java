@@ -12,5 +12,7 @@ public class TagsConversionModel {
 
     static {
         model.put("NN", Tags.NOUN);
+        model.put(",", "");
+
     }
 }

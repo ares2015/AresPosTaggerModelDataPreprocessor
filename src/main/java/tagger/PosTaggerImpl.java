@@ -7,8 +7,12 @@ import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import model.ConstantWordsModel;
 import model.TagsConversionModel;
+import tokenizing.Tokenizer;
+import tokenizing.TokenizerImpl;
 
+import java.util.List;
 import java.util.Properties;
+import java.util.Set;
 
 /**
  * Created by oliver.eder on 1/10/2017.
@@ -19,6 +23,8 @@ public class PosTaggerImpl {
 
     private StanfordCoreNLP pipeline;
 
+    private Tokenizer tokenizer = new TokenizerImpl();
+
     public PosTaggerImpl() {
         props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos");
@@ -27,7 +33,9 @@ public class PosTaggerImpl {
 
 
     public String tag(String inputSentence) {
-        int sentenceLength = inputSentence.split("\\ ").length;
+        List<String> tokens = tokenizer.getTokens(inputSentence);
+        Set<Integer> commaIndexes = tokenizer.getCommaIndexes(tokens);
+        int sentenceLength = tokens.size();
         StringBuilder stringBuilder = new StringBuilder();
         Annotation annotation = new Annotation(inputSentence);
         pipeline.annotate(annotation);
@@ -38,19 +46,25 @@ public class PosTaggerImpl {
             for (CoreLabel token : processedSentence.get(CoreAnnotations.TokensAnnotation.class)) {
                 String word = token.get(CoreAnnotations.TextAnnotation.class);
                 String tag = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
-                if (ConstantWordsModel.constantWordsModelMap.containsKey(word)) {
-                    stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(word));
-                    if (index < sentenceLength - 1) {
-                        stringBuilder.append(" ");
-                    }
-                } else {
-                    stringBuilder.append(TagsConversionModel.model.get(tag));
-                    if (index < sentenceLength - 1) {
-                        stringBuilder.append(" ");
+                if (!",".equals(tag)) {
+                    if (ConstantWordsModel.constantWordsModelMap.containsKey(word)) {
+                        stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(word));
+                        if (commaIndexes.contains(index)) {
+                            stringBuilder.append(",");
+                        }
+                        if (index < sentenceLength) {
+                            stringBuilder.append(" ");
+                        }
+                    } else {
+                        stringBuilder.append(TagsConversionModel.model.get(tag));
+                        if (commaIndexes.contains(index)) {
+                            stringBuilder.append(",");
+                        }
+                        if (index < sentenceLength) {
+                            stringBuilder.append(" ");
+                        }
                     }
                 }
-//                System.out.println(word);
-//                System.out.println(tag);
                 index++;
             }
         }
