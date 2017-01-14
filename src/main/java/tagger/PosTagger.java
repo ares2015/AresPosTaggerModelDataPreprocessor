@@ -17,7 +17,7 @@ import java.util.Set;
 /**
  * Created by oliver.eder on 1/10/2017.
  */
-public class PosTaggerImpl {
+public class PosTagger {
 
     private Properties props;
 
@@ -25,7 +25,7 @@ public class PosTaggerImpl {
 
     private Tokenizer tokenizer = new TokenizerImpl();
 
-    public PosTaggerImpl() {
+    public PosTagger() {
         props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos");
         pipeline = new StanfordCoreNLP(props);
@@ -52,7 +52,7 @@ public class PosTaggerImpl {
                         if (commaIndexes.contains(index)) {
                             stringBuilder.append(",");
                         }
-                        if (index < sentenceLength) {
+                        if (index < sentenceLength - 1) {
                             stringBuilder.append(" ");
                         }
                     } else {
@@ -60,7 +60,7 @@ public class PosTaggerImpl {
                         if (commaIndexes.contains(index)) {
                             stringBuilder.append(",");
                         }
-                        if (index < sentenceLength) {
+                        if (index < sentenceLength - 1) {
                             stringBuilder.append(" ");
                         }
                     }
@@ -73,8 +73,8 @@ public class PosTaggerImpl {
 
 
     public static void main(String[] args) {
-        PosTaggerImpl posTaggerImpl = new PosTaggerImpl();
-        String tags = posTaggerImpl.tag("dog is animal");
+        PosTagger posTagger = new PosTagger();
+        String tags = posTagger.tag("dog is animal");
         System.out.println(tags);
     }
 }
