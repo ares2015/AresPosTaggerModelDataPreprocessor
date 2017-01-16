@@ -11,4 +11,10 @@ public interface Tokenizer {
     List<String> getTokens(String sentence);
 
     Set<Integer> getCommaIndexes(List<String> tokens);
+
+    String removeBrackets(String string, char bracket1, char bracket2);
+
+    String removeDoubleQuotes(String sentence);
+
+    String removeEmptyStrings(String sentence);
 }

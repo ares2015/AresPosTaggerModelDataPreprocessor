@@ -1,5 +1,6 @@
+package tagger;
+
 import org.junit.Test;
-import tagger.PosTagger;
 
 import static org.junit.Assert.assertEquals;
 
