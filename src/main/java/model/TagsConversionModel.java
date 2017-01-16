@@ -18,7 +18,7 @@ public class TagsConversionModel {
 
         model.put(StanfordTags.VERB_BASE_FORM, Tags.VERB);
         model.put(StanfordTags.VERB_3RD_PERSON_SINGULAR_PRESENT, Tags.VERB);
-        model.put(StanfordTags.VERB_GERUND_PRESENT_PARTICIPLE, Tags.VERB);
+        model.put(StanfordTags.VERB_GERUND_PRESENT_PARTICIPLE, Tags.VERB_ING);
         model.put(StanfordTags.VERB_NON_3RD_PERSON_SINGULAR_PRESENT, Tags.VERB);
 
         model.put(StanfordTags.VERB_PAST_TENSE, Tags.VERB_ED);

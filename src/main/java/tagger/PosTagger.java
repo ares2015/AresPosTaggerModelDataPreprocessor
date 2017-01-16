@@ -6,6 +6,8 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 import model.ConstantWordsModel;
+import model.StanfordTags;
+import model.Tags;
 import model.TagsConversionModel;
 import tokenizing.Tokenizer;
 import tokenizing.TokenizerImpl;
@@ -46,26 +48,36 @@ public class PosTagger {
             for (CoreLabel token : processedSentence.get(CoreAnnotations.TokensAnnotation.class)) {
                 String word = token.get(CoreAnnotations.TextAnnotation.class);
                 String tag = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
-                if (!",".equals(tag)) {
-                    if (ConstantWordsModel.constantWordsModelMap.containsKey(word)) {
-                        stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(word));
+                if (!",".equals(tag) && !StanfordTags.POSSESIVE_ENDING.equals(tag)) {
+                    if (index > 0 && Character.isUpperCase(word.charAt(0))) {
+                        stringBuilder.append(Tags.NOUN);
                         if (commaIndexes.contains(index)) {
                             stringBuilder.append(",");
                         }
-                        if (index < sentenceLength - 1) {
+                        if (index <= sentenceLength - 1) {
                             stringBuilder.append(" ");
                         }
                     } else {
-                        stringBuilder.append(TagsConversionModel.model.get(tag));
-                        if (commaIndexes.contains(index)) {
-                            stringBuilder.append(",");
+                        if (ConstantWordsModel.constantWordsModelMap.containsKey(word)) {
+                            stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(word));
+                            if (commaIndexes.contains(index)) {
+                                stringBuilder.append(",");
+                            }
+                            if (index <= sentenceLength - 1) {
+                                stringBuilder.append(" ");
+                            }
+                        } else {
+                            stringBuilder.append(TagsConversionModel.model.get(tag));
+                            if (commaIndexes.contains(index)) {
+                                stringBuilder.append(",");
+                            }
+                            if (index <= sentenceLength - 1) {
+                                stringBuilder.append(" ");
+                            }
                         }
-                        if (index < sentenceLength - 1) {
-                            stringBuilder.append(" ");
-                        }
+                        index++;
                     }
                 }
-                index++;
             }
         }
         return stringBuilder.toString();
