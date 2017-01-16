@@ -36,14 +36,21 @@ public class PosTaggerTest {
 
         assertEquals("N IA Ved PR DET AJ CJ AV AJ AJ N N PR N PR DET N N ", posTagger.tag("Raphael was born in the small but artistically significant central Italian city of Urbino in the Marche region"));
 
-        assertEquals("PR DET N PR NR, N Ved TO N WAV PRP, Ved PR DET N PR PRPS N ", posTagger.tag("by the end of 1508, Raphael moved to Rome, where he lived for the rest of his life"));
+        assertEquals("PR DET N PR NR, N Ved TO N, WAV PRP Ved PR DET N PR PRPS N ", posTagger.tag("by the end of 1508, Raphael moved to Rome, where he lived for the rest of his life"));
 
         assertEquals("N N IA Ved PR Q AJ AJ N WP V PR DET N PR N PR Q NR PR N ", posTagger.tag("Earth's lithosphere is divided into several rigid tectonic plates that migrate across the surface over periods of many millions of years"));
 
+        assertEquals("DET AJ N Ved PR DET N N IA Ved TO NR NR N PR ", posTagger.tag("the oldest material found in the Solar System is dated to 4.5672 billion years ago"));
 
+        assertEquals("DET Q N V N, Ving WP PRPS AV AJ N IA Ved PR N Ved TO V DET N N ", posTagger.tag("a few scholars defend Louis, arguing that his highly negative reputation was based on propaganda meant to justify the French Revolution"));
 
+        assertEquals("PR N NR, N N N N AV Ved ", posTagger.tag("in April 1711, Louis Le Grand Dauphin suddenly died"));
 
+        assertEquals("PR N N N, N IA V PR DET N PR N WAV PRP Ved PRPS NR N ", posTagger.tag("by French royal tradition, princes were put in the care of men when they reached their seventh birthdays"));
 
+        assertEquals("DET N PR DET N PR N V N WP Ved PR AJ AJ AO AJ N PR N ", posTagger.tag("the ministry of the Duke of Bourbon pursue policies that resulted in serious economic and social problems in France"));
+
+        assertEquals("PR DET N, WAV, N N AV Ved N, AO N IA Ved PR AV PR NR ", posTagger.tag("in the west, however, French troops rapidly overran Lorraine, and peace was restored as early as 1735"));
 
     }
 }

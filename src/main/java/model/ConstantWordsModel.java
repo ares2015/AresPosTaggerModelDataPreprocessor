@@ -37,6 +37,8 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("between", Tags.PREPOSITION);
         constantWordsModelMap.put("amongst", Tags.PREPOSITION);
         constantWordsModelMap.put("than", Tags.PREPOSITION);
+        constantWordsModelMap.put("across", Tags.PREPOSITION);
+
 
         constantWordsModelMap.put("and", Tags.AND_OR);
         constantWordsModelMap.put("or", Tags.AND_OR);

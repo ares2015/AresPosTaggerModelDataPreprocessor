@@ -50,6 +50,13 @@ public class TagsConversionModel {
 
         model.put(StanfordTags.WH_ADVERB, Tags.WH_ADVERB);
 
+        model.put(StanfordTags.POSSESSIVE_WH_PRONOUN, Tags.WH_PRONOUN_POSSESSIVE);
+
+        model.put(StanfordTags.WH_DETERMINER, Tags.WH_DETERMINER);
+
+        model.put(StanfordTags.COORDINATING_CONJUNCTION, Tags.CONJUNCTION);
+
+        model.put(StanfordTags.PREPOSITION_SUB_CONJUNCTION, Tags.CONJUNCTION);
 
 
         model.put(",", "");
