@@ -188,14 +188,18 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("whenever", Tags.WH_ADVERB);
         constantWordsModelMap.put("where", Tags.WH_ADVERB);
         constantWordsModelMap.put("whereby", Tags.WH_ADVERB);
-        constantWordsModelMap.put("whereever", Tags.WH_ADVERB);
+        constantWordsModelMap.put("wherever", Tags.WH_ADVERB);
         constantWordsModelMap.put("wherein", Tags.WH_ADVERB);
         constantWordsModelMap.put("whereof", Tags.WH_ADVERB);
         constantWordsModelMap.put("why", Tags.WH_ADVERB);
 
         constantWordsModelMap.put("there", Tags.THERE);
-        constantWordsModelMap.put("here", Tags.HERE);
+        constantWordsModelMap.put("there's", Tags.THERE);
+        constantWordsModelMap.put("there're", Tags.THERE);
 
+        constantWordsModelMap.put("here", Tags.HERE);
+        constantWordsModelMap.put("here's", Tags.HERE);
+        constantWordsModelMap.put("here're", Tags.HERE);
 
         constantWordsModelMap.put("do", Tags.DO);
         constantWordsModelMap.put("does", Tags.DO);
@@ -205,7 +209,6 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("don't", Tags.DO);
         constantWordsModelMap.put("doesn't", Tags.DO);
         constantWordsModelMap.put("didn't", Tags.DO);
-
 
         constantWordsModelMap.put("arose", Tags.VERB_ED);
         constantWordsModelMap.put("arisen", Tags.VERB_ED);
