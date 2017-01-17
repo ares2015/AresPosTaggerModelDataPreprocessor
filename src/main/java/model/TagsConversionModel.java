@@ -58,6 +58,20 @@ public class TagsConversionModel {
 
         model.put(StanfordTags.PREPOSITION_SUB_CONJUNCTION, Tags.CONJUNCTION);
 
+        model.put(StanfordTags.PREPOSITION_SUB_CONJUNCTION, Tags.CONJUNCTION);
+
+        model.put(StanfordTags.FOREIGN_WORD, Tags.FOREIGN_WORD);
+
+        model.put(StanfordTags.INTERJECTION, Tags.INTERJECTION);
+
+        model.put(StanfordTags.PREDETERMINER, Tags.PREDETERMINER);
+
+        model.put(StanfordTags.PARTICLE, Tags.PARTICLE);
+
+        model.put(StanfordTags.SYMBOL, Tags.SYMBOL);
+
+        model.put(StanfordTags.LIST_ITEM_MARKER, Tags.LIST_ITEM_MARKER);
+
 
         model.put(",", "");
 

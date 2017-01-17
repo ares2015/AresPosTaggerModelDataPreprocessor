@@ -62,5 +62,9 @@ public class TokenizerImpl implements Tokenizer {
         return newString.toString();
     }
 
+    public String removeSemicolon(String sentence) {
+        return sentence.replace(";", "");
+    }
+
 
 }

@@ -17,11 +17,17 @@ public final class Tags {
 
     public static final String DO = "DO";
 
+    public static final String FOREIGN_WORD = "FW";
+
     public static final String HAVE = "H";
 
     public static final String HERE = "HR";
 
     public static final String IS_ARE = "IA";
+
+    public static final String INTERJECTION = "UH";
+
+    public static final String LIST_ITEM_MARKER = "LS";
 
     public static final String MODAL_VERB = "MV";
 
@@ -31,11 +37,17 @@ public final class Tags {
 
     public static final String NUMBER = "NR";
 
+    public static final String PARTICLE = "RP";
+
+    public static final String PREDETERMINER = "PDT";
+
     public static final String PREPOSITION = "PR";
 
     public static final String PRONOUN_PERSONAL = "PRP";
 
     public static final String PRONOUN_POSSESIVE = "PRPS";
+
+    public static final String SYMBOL = "SYM";
 
     public static final String QUANTIFIER = "Q";
 

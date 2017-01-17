@@ -47,7 +47,6 @@ public class PosTagger {
         pipeline.annotate(annotation);
         if (annotation.get(CoreAnnotations.SentencesAnnotation.class).size() > 0) {
             CoreMap processedSentence = annotation.get(CoreAnnotations.SentencesAnnotation.class).get(0);
-            System.out.println(processedSentence);
             int index = 0;
             for (CoreLabel token : processedSentence.get(CoreAnnotations.TokensAnnotation.class)) {
                 String word = token.get(CoreAnnotations.TextAnnotation.class);
@@ -98,10 +97,4 @@ public class PosTagger {
         return stringBuilder.toString();
     }
 
-
-    public static void main(String[] args) {
-        PosTagger posTagger = new PosTagger();
-        String tags = posTagger.tag("dog is animal");
-        System.out.println(tags);
-    }
 }

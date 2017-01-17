@@ -34,12 +34,16 @@ public class NlpTrainingDataPreprocessor {
         NlpTrainingDataPreprocessor nlpTrainingDataPreprocessor = new NlpTrainingDataPreprocessor();
         List<String> sentences = nlpTrainingDataPreprocessor.textReader.read();
         List<String> preprocessedSentences = nlpTrainingDataPreprocessor.sentencesPreprocessor.preprocess(sentences);
-        for(String sentence : preprocessedSentences){
-            String tagSequence = nlpTrainingDataPreprocessor.posTagger.tag(sentence);
-            String trainingDataRow = sentence + "#" + tagSequence;
-            trainingDataRowList.add(trainingDataRow);
+        for (String sentence : preprocessedSentences) {
+            if (!"#".equals(sentence) && !"".equals(sentence)) {
+                String tagSequence = nlpTrainingDataPreprocessor.posTagger.tag(sentence);
+                String trainingDataRow = sentence + "#" + tagSequence;
+                System.out.println(trainingDataRow);
+                trainingDataRowList.add(trainingDataRow);
+            }
         }
         nlpTrainingDataPreprocessor.preprocessedDataFileWriter.write(trainingDataRowList);
+        System.out.println("Processed " + trainingDataRowList.size() + " sentences");
     }
 
 

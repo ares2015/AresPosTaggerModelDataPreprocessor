@@ -17,4 +17,6 @@ public interface Tokenizer {
     String removeDoubleQuotes(String sentence);
 
     String removeEmptyStrings(String sentence);
+
+    String removeSemicolon(String sentence);
 }
