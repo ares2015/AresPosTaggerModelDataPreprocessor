@@ -19,4 +19,10 @@ public interface Tokenizer {
     String removeEmptyStrings(String sentence);
 
     String removeSemicolon(String sentence);
+
+    String replaceApostrophedSSuffix(String sentence);
+
+    String replaceApostrophedReSuffix(String sentence);
+
+    String replaceApostrophedVeSuffix(String sentence);
 }

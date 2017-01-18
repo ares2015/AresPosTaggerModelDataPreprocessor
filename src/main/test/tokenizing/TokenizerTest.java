@@ -43,4 +43,19 @@ public class TokenizerTest {
         assertEquals("test test", tokenizer.removeSemicolon("test; test"));
     }
 
+    @Test
+    public void testReplaceApostrophedSSuffix(){
+        assertEquals("it 's ok", tokenizer.replaceApostrophedSSuffix("it's ok"));
+    }
+
+    @Test
+    public void testReplaceApostrophedReSuffix(){
+        assertEquals("they 're ok", tokenizer.replaceApostrophedReSuffix("they're ok"));
+    }
+
+    @Test
+    public void testReplaceApostrophedVeSuffix(){
+        assertEquals("I 've got it", tokenizer.replaceApostrophedVeSuffix("I've got it"));
+    }
+
 }

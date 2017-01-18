@@ -66,5 +66,17 @@ public class TokenizerImpl implements Tokenizer {
         return sentence.replace(";", "");
     }
 
+    public String replaceApostrophedSSuffix(String sentence) {
+        return sentence.replace("'s", " 's");
+    }
+
+    public String replaceApostrophedReSuffix(String sentence) {
+        return sentence.replace("'re", " 're");
+    }
+
+    public String replaceApostrophedVeSuffix(String sentence) {
+        return sentence.replace("'ve", " 've");
+    }
+
 
 }
