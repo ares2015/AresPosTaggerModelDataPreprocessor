@@ -46,7 +46,6 @@ public class SentencePreprocessorImpl implements SentencesPreprocessor {
             }
             sentence = tokenizer.removeEmptyStrings(sentence);
             processedSentences.add(sentence);
-            System.out.println(sentence);
         }
         return processedSentences;
     }
