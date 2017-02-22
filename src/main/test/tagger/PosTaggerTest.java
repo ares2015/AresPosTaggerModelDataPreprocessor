@@ -53,5 +53,6 @@ public class PosTaggerTest {
 
         assertEquals("PR DET N, WAV, N N AV Ved N, AO N IA Ved PR AV PR NR ", posTagger.tag("in the west, however, French troops rapidly overran Lorraine, and peace was restored as early as 1735"));
 
+        assertEquals("DET N N Ved PR N PR PRP Ved ", posTagger.tag("The queen’s eyes filled with tears as she answered"));
     }
 }
