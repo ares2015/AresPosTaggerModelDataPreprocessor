@@ -35,15 +35,15 @@ public class SentencePreprocessorImpl implements SentencesPreprocessor {
             if (sentence.contains(";")) {
                 sentence = tokenizer.removeSemicolon(sentence);
             }
-            if (sentence.contains("'s")) {
-                sentence = tokenizer.replaceApostrophedSSuffix(sentence);
-            }
-            if (sentence.contains("'re")) {
-                sentence = tokenizer.replaceApostrophedReSuffix(sentence);
-            }
-            if (sentence.contains("'ve")) {
-                sentence = tokenizer.replaceApostrophedVeSuffix(sentence);
-            }
+//            if (sentence.contains("'s")) {
+//                sentence = tokenizer.replaceApostrophedSSuffix(sentence);
+//            }
+//            if (sentence.contains("'re")) {
+//                sentence = tokenizer.replaceApostrophedReSuffix(sentence);
+//            }
+//            if (sentence.contains("'ve")) {
+//                sentence = tokenizer.replaceApostrophedVeSuffix(sentence);
+//            }
             sentence = tokenizer.removeEmptyStrings(sentence);
             processedSentences.add(sentence);
         }
