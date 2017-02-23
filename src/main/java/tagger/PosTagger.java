@@ -61,7 +61,7 @@ public class PosTagger {
                             stringBuilder.append(" ");
                         }
                     } else {
-                        if (index > 0 && Character.isUpperCase(word.charAt(0))) {
+                        if (index > 0 && !Tags.PRONOUN_PERSONAL.equals(tag) && Character.isUpperCase(word.charAt(0))) {
                             stringBuilder.append(Tags.NOUN);
                             if (commaIndexes.contains(index)) {
                                 stringBuilder.append(",");
@@ -70,8 +70,8 @@ public class PosTagger {
                                 stringBuilder.append(" ");
                             }
                         } else {
-                            if (ConstantWordsModel.constantWordsModelMap.containsKey(word)) {
-                                stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(word));
+                            if (ConstantWordsModel.constantWordsModelMap.containsKey(tokenizer.decapitalize(word))) {
+                                stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(tokenizer.decapitalize(word)));
                                 if (commaIndexes.contains(index)) {
                                     stringBuilder.append(",");
                                 }

@@ -54,5 +54,12 @@ public class PosTaggerTest {
         assertEquals("PR DET N, WAV, N N AV Ved N, AO N IA Ved PR AV PR NR ", posTagger.tag("in the west, however, French troops rapidly overran Lorraine, and peace was restored as early as 1735"));
 
         assertEquals("DET N N Ved PR N PR PRP Ved ", posTagger.tag("The queen’s eyes filled with tears as she answered"));
+
+        assertEquals("PRP V N ", posTagger.tag("I like wine"));
+
+        assertEquals("CJ, Ved N, CJ PRP V, PRP MV H PR PRPS N N N N ", posTagger.tag("But, said Siegfried, if we succeed, I must have as my wife thy sister Kriemhilda"));
+
+        assertEquals("AO WDT, Ved DET Ving N, MV N IA ", posTagger.tag("And who, asked the wondering people, may Siegfried be"));
+
     }
 }

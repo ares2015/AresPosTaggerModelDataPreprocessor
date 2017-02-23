@@ -25,4 +25,6 @@ public interface Tokenizer {
     String replaceApostrophedReSuffix(String sentence);
 
     String replaceApostrophedVeSuffix(String sentence);
+
+    String decapitalize(String token);
 }

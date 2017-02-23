@@ -79,4 +79,11 @@ public class TokenizerImpl implements Tokenizer {
     }
 
 
+    public String decapitalize(String token) {
+        char c[] = token.toCharArray();
+        c[0] = Character.toLowerCase(c[0]);
+        return new String(c);
+    }
+
+
 }
