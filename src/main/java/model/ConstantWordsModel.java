@@ -11,7 +11,6 @@ public class ConstantWordsModel {
     public static Map<String, String> constantWordsModelMap = new HashMap<String, String>();
 
     static {
-        constantWordsModelMap.put("across", Tags.PREPOSITION);
         constantWordsModelMap.put("with", Tags.PREPOSITION);
         constantWordsModelMap.put("from", Tags.PREPOSITION);
         constantWordsModelMap.put("without", Tags.PREPOSITION);
@@ -251,8 +250,6 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("came", Tags.VERB_ED);
         constantWordsModelMap.put("dealt", Tags.VERB_ED);
         constantWordsModelMap.put("dug", Tags.VERB_ED);
-        constantWordsModelMap.put("did", Tags.VERB_ED);
-        constantWordsModelMap.put("done", Tags.VERB_ED);
         constantWordsModelMap.put("drew", Tags.VERB_ED);
         constantWordsModelMap.put("drawn", Tags.VERB_ED);
         constantWordsModelMap.put("dreamt", Tags.VERB_ED);
