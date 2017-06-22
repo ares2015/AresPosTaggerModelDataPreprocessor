@@ -10,8 +10,7 @@ import java.util.List;
  */
 public class PreprocessedDataFileWriterImpl implements PreprocessedDataFileWriter {
 
-    //    private static final String FILENAME = "C:\\Users\\Oliver\\Documents\\NlpTrainingData\\NlpTrainingData.txt";
-    private static final String FILENAME = "C:\\Users\\oliver.eder\\Documents\\NlpTrainingData.txt";
+    private static final String FILENAME = "C:\\Users\\Oliver\\Documents\\NlpTrainingData\\NlpTrainingData.txt";
 
     public void write(List<String> trainingDataRowList) {
         BufferedWriter bw = null;

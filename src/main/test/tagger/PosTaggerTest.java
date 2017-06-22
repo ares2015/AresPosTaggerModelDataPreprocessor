@@ -9,9 +9,12 @@ import static org.junit.Assert.assertEquals;
  */
 public class PosTaggerTest {
 
+    private PosTagger posTagger = new PosTagger();
+
     @Test
     public void test(){
-        PosTagger posTagger = new PosTagger();
+
+        assertEquals("PR DET N, WAV, N N AV Ved N, AO N IA Ved PR AV PR NR ", posTagger.tag("in the west, however, French troops rapidly overran Lorraine, and peace was restored as early as 1735"));
 
         assertEquals("N N Ved N N PR N PR NR ", posTagger.tag("George Bush met Vladimir Putin in Bratislava in 2005"));
 
@@ -51,8 +54,6 @@ public class PosTaggerTest {
 
         assertEquals("DET N PR DET N PR N V N WP Ved PR AJ AJ AO AJ N PR N ", posTagger.tag("the ministry of the Duke of Bourbon pursue policies that resulted in serious economic and social problems in France"));
 
-        assertEquals("PR DET N, WAV, N N AV Ved N, AO N IA Ved PR AV PR NR ", posTagger.tag("in the west, however, French troops rapidly overran Lorraine, and peace was restored as early as 1735"));
-
         assertEquals("DET N N Ved PR N PR PRP Ved ", posTagger.tag("The queen’s eyes filled with tears as she answered"));
 
         assertEquals("PRP V N ", posTagger.tag("I like wine"));
@@ -60,6 +61,10 @@ public class PosTaggerTest {
         assertEquals("CJ, Ved N, CJ PRP V, PRP MV H PR PRPS N N N N ", posTagger.tag("But, said Siegfried, if we succeed, I must have as my wife thy sister Kriemhilda"));
 
         assertEquals("AO WDT, Ved DET Ving N, MV N IA ", posTagger.tag("And who, asked the wondering people, may Siegfried be"));
+    }
 
+    @Test
+    public void test2() {
+        assertEquals("N MV_NOT V N PR N N ", posTagger.tag("McGregor can't beat Mayweather in boxing match"));
     }
 }

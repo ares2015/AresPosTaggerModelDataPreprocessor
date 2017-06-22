@@ -11,6 +11,7 @@ public class ConstantWordsModel {
     public static Map<String, String> constantWordsModelMap = new HashMap<String, String>();
 
     static {
+        constantWordsModelMap.put("across", Tags.PREPOSITION);
         constantWordsModelMap.put("with", Tags.PREPOSITION);
         constantWordsModelMap.put("from", Tags.PREPOSITION);
         constantWordsModelMap.put("without", Tags.PREPOSITION);
@@ -37,8 +38,6 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("between", Tags.PREPOSITION);
         constantWordsModelMap.put("amongst", Tags.PREPOSITION);
         constantWordsModelMap.put("than", Tags.PREPOSITION);
-        constantWordsModelMap.put("across", Tags.PREPOSITION);
-
 
         constantWordsModelMap.put("and", Tags.AND_OR);
         constantWordsModelMap.put("or", Tags.AND_OR);
@@ -70,6 +69,11 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("been", Tags.IS_ARE);
         constantWordsModelMap.put("being", Tags.IS_ARE);
 
+        constantWordsModelMap.put("isn't", Tags.IS_ARE_NOT);
+        constantWordsModelMap.put("aren't", Tags.IS_ARE_NOT);
+        constantWordsModelMap.put("wasn't", Tags.IS_ARE_NOT);
+        constantWordsModelMap.put("weren't", Tags.IS_ARE_NOT);
+
         constantWordsModelMap.put("to", Tags.TO);
 
         constantWordsModelMap.put("not", Tags.NOT);
@@ -80,14 +84,15 @@ public class ConstantWordsModel {
 
         constantWordsModelMap.put("might", Tags.MODAL_VERB);
         constantWordsModelMap.put("should", Tags.MODAL_VERB);
-        constantWordsModelMap.put("shouldn't", Tags.MODAL_VERB);
+        constantWordsModelMap.put("shouldn't", Tags.MODAL_VERB_NOT);
         constantWordsModelMap.put("would", Tags.MODAL_VERB);
-        constantWordsModelMap.put("wouldn't", Tags.MODAL_VERB);
+        constantWordsModelMap.put("wouldn't", Tags.MODAL_VERB_NOT);
         constantWordsModelMap.put("must", Tags.MODAL_VERB);
+        constantWordsModelMap.put("mustn't", Tags.MODAL_VERB_NOT);
         constantWordsModelMap.put("can", Tags.MODAL_VERB);
-        constantWordsModelMap.put("can't", Tags.MODAL_VERB);
+        constantWordsModelMap.put("can't", Tags.MODAL_VERB_NOT);
         constantWordsModelMap.put("could", Tags.MODAL_VERB);
-        constantWordsModelMap.put("couldn't", Tags.MODAL_VERB);
+        constantWordsModelMap.put("couldn't", Tags.MODAL_VERB_NOT);
 
         constantWordsModelMap.put("all", Tags.QUANTIFIER);
         constantWordsModelMap.put("both", Tags.QUANTIFIER);
@@ -107,10 +112,13 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("much", Tags.QUANTIFIER);
         constantWordsModelMap.put("few", Tags.QUANTIFIER);
 
-
         constantWordsModelMap.put("have", Tags.HAVE);
         constantWordsModelMap.put("has", Tags.HAVE);
         constantWordsModelMap.put("had", Tags.HAVE);
+
+        constantWordsModelMap.put("haven't", Tags.HAVE_NOT);
+        constantWordsModelMap.put("hasn't", Tags.HAVE_NOT);
+        constantWordsModelMap.put("hadn't", Tags.HAVE_NOT);
 
         constantWordsModelMap.put("I", Tags.PRONOUN_PERSONAL);
         constantWordsModelMap.put("I've", Tags.PRONOUN_PERSONAL);
@@ -206,9 +214,9 @@ public class ConstantWordsModel {
         constantWordsModelMap.put("did", Tags.DO);
         constantWordsModelMap.put("done", Tags.DO);
 
-        constantWordsModelMap.put("don't", Tags.DO);
-        constantWordsModelMap.put("doesn't", Tags.DO);
-        constantWordsModelMap.put("didn't", Tags.DO);
+        constantWordsModelMap.put("don't", Tags.DO_NOT);
+        constantWordsModelMap.put("doesn't", Tags.DO_NOT);
+        constantWordsModelMap.put("didn't", Tags.DO_NOT);
 
         constantWordsModelMap.put("arose", Tags.VERB_ED);
         constantWordsModelMap.put("arisen", Tags.VERB_ED);

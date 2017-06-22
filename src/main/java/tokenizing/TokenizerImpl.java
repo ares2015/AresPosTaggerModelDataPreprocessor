@@ -11,6 +11,19 @@ public class TokenizerImpl implements Tokenizer {
         return Arrays.asList(sentence.split("\\ "));
     }
 
+    @Override
+    public String removeCommaAndDot(final String token) {
+        char[] charTmp;
+        charTmp = token.toCharArray();
+        final char[] charToken = new char[charTmp.length - 1];
+        for (int i = 0; i < charTmp.length - 1; i++) {
+            charToken[i] = charTmp[i];
+        }
+        final String tokenWithoutComma = new String(charToken);
+        return tokenWithoutComma;
+    }
+
+
     public Set<Integer> getCommaIndexes(List<String> tokens) {
         Set<Integer> indexes = new HashSet<Integer>();
         int index = 0;

@@ -48,10 +48,10 @@ public class PosTagger {
         if (annotation.get(CoreAnnotations.SentencesAnnotation.class).size() > 0) {
             CoreMap processedSentence = annotation.get(CoreAnnotations.SentencesAnnotation.class).get(0);
             int index = 0;
-            for (CoreLabel token : processedSentence.get(CoreAnnotations.TokensAnnotation.class)) {
-                String word = token.get(CoreAnnotations.TextAnnotation.class);
-                String tag = token.get(CoreAnnotations.PartOfSpeechAnnotation.class);
-                if (!",".equals(tag) && !StanfordTags.POSSESIVE_ENDING.equals(tag)) {
+            for (CoreLabel stfToken : processedSentence.get(CoreAnnotations.TokensAnnotation.class)) {
+                String word = stfToken.get(CoreAnnotations.TextAnnotation.class);
+                String tag = stfToken.get(CoreAnnotations.PartOfSpeechAnnotation.class);
+                if (!",".equals(tag) && !StanfordTags.POSSESIVE_ENDING.equals(tag) && !"n't".equals(word)) {
                     if (numberPrefixDetector.detect(word)) {
                         stringBuilder.append(Tags.NUMBER);
                         if (commaIndexes.contains(index)) {
@@ -70,8 +70,12 @@ public class PosTagger {
                                 stringBuilder.append(" ");
                             }
                         } else {
-                            if (ConstantWordsModel.constantWordsModelMap.containsKey(tokenizer.decapitalize(word))) {
-                                stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(tokenizer.decapitalize(word)));
+                            String token = tokens.get(index);
+                            if (token.contains(",")) {
+                                token = tokenizer.removeCommaAndDot(token);
+                            }
+                            if (ConstantWordsModel.constantWordsModelMap.containsKey(tokenizer.decapitalize(token))) {
+                                stringBuilder.append(ConstantWordsModel.constantWordsModelMap.get(tokenizer.decapitalize(token)));
                                 if (commaIndexes.contains(index)) {
                                     stringBuilder.append(",");
                                 }

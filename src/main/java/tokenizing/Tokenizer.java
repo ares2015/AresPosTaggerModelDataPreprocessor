@@ -10,6 +10,8 @@ public interface Tokenizer {
 
     List<String> getTokens(String sentence);
 
+    String removeCommaAndDot(String token);
+
     Set<Integer> getCommaIndexes(List<String> tokens);
 
     String removeBrackets(String string, char bracket1, char bracket2);
