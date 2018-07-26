@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by Oliver on 1/16/2017.
  */
-public class NlpTrainingDataPreprocessor {
+public class AresPosTaggerModelDataPreprocessor {
 
     public TextReader textReader = new TextReaderImpl();
 
@@ -31,17 +31,17 @@ public class NlpTrainingDataPreprocessor {
 
     public static void main(String[] args) {
         List<String> trainingDataRowList = new ArrayList<String>();
-        NlpTrainingDataPreprocessor nlpTrainingDataPreprocessor = new NlpTrainingDataPreprocessor();
-        List<String> sentences = nlpTrainingDataPreprocessor.textReader.read();
-        List<String> preprocessedSentences = nlpTrainingDataPreprocessor.sentencesPreprocessor.preprocess(sentences);
+        AresPosTaggerModelDataPreprocessor aresPosTaggerModelDataPreprocessor = new AresPosTaggerModelDataPreprocessor();
+        List<String> sentences = aresPosTaggerModelDataPreprocessor.textReader.read();
+        List<String> preprocessedSentences = aresPosTaggerModelDataPreprocessor.sentencesPreprocessor.preprocess(sentences);
         for (String sentence : preprocessedSentences) {
             if (!"#".equals(sentence) && !"".equals(sentence)) {
-                String tagSequence = nlpTrainingDataPreprocessor.posTagger.tag(sentence);
+                String tagSequence = aresPosTaggerModelDataPreprocessor.posTagger.tag(sentence);
                 String trainingDataRow = sentence + "#" + tagSequence;
                 trainingDataRowList.add(trainingDataRow);
             }
         }
-        nlpTrainingDataPreprocessor.preprocessedDataFileWriter.write(trainingDataRowList);
+        aresPosTaggerModelDataPreprocessor.preprocessedDataFileWriter.write(trainingDataRowList);
     }
 
 
