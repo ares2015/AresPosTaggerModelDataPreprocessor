@@ -17,7 +17,6 @@ public class TextReaderTest {
         TextReader textReader = new TextReaderImpl();
         List<String> sentences = textReader.read();
         assertTrue(sentences.size() > 0);
-        assertEquals("Night of January 16th is a play by Russian-American author Ayn Rand, inspired by the death of Ivar Kreuger, an industrialist and accused swindler known as the Match King",
-                sentences.get(0));
+        assertEquals("On both sides of the White House fence, nearnervous breakdowns abound", sentences.get(0));
     }
 }
